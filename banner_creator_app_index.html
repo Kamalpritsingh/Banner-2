@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Banner Creator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .banner {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      color: #fff;
+      text-align: center;
+    }
+    #downloadBtn {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Create a Custom Banner</h2>
+    <label for="headline">Headline:</label>
+    <input type="text" id="headline" placeholder="e.g., Get the Best Mobile Deals!">
+
+    <label for="subtext">Subtext:</label>
+    <textarea id="subtext" rows="3" placeholder="e.g., Explore top brands with No Cost EMI."></textarea>
+
+    <label for="bgColor">Background Color:</label>
+    <input type="color" id="bgColor" value="#007bff">
+
+    <label for="textColor">Text Color:</label>
+    <input type="color" id="textColor" value="#ffffff">
+
+    <button id="downloadBtn" onclick="generateBanner()">Generate Banner</button>
+
+    <div id="bannerPreview" class="banner" style="display:none;"></div>
+  </div>
+
+  <script>
+    function generateBanner() {
+      const headline = document.getElementById('headline').value;
+      const subtext = document.getElementById('subtext').value;
+      const bgColor = document.getElementById('bgColor').value;
+      const textColor = document.getElementById('textColor').value;
+
+      const banner = document.getElementById('bannerPreview');
+      banner.style.backgroundColor = bgColor;
+      banner.style.color = textColor;
+      banner.innerHTML = `<h2>${headline}</h2><p>${subtext}</p>`;
+      banner.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
